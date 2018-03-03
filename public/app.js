@@ -13,20 +13,20 @@ const appStart = function(){
     // const marker = L.marker([51.5, -0.09]).addTo(mymap);
     // marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 
-    const newMarkerIcon = L.icon({
-        iconUrl: 'marker.png',
+    // const newMarkerIcon = L.icon({
+    //     iconUrl: 'marker.png',
     
-        iconSize:     [30, 60], // size of the icon
-        // iconAnchor:   [50, 1], // point of the icon which will correspond to marker's location
-        // popupAnchor:  [15, -20] // point from which the popup should open relative to the iconAnchor
-    });
+    //     iconSize:     [30, 60], // size of the icon
+    //     // iconAnchor:   [50, 1], // point of the icon which will correspond to marker's location
+    //     // popupAnchor:  [15, -20] // point from which the popup should open relative to the iconAnchor
+    // });
 
     mymap.locate({setView: true, maxZoom: 16});
 
     function onLocationFound(e) {
         const radius = e.accuracy / 2;
     
-        L.marker(e.latlng, {icon: newMarkerIcon}).addTo(mymap)
+        L.marker(e.latlng).addTo(mymap)
             .bindPopup("You are here!").openPopup();
     
         L.circle(e.latlng, radius).addTo(mymap);
